@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .style {
+            font-weight: bold;
+            font-size: 16px;
+            color: blue;
+        }
+
+        input {
+            width: 200px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>Nhập chuỗi</p>
+        <span class="style">Nhập<input id="inputString" type="text" name="classname">
+             <button onclick="countLength()">Count</button></span>
+        <h2 id="stringLength"></h2>
+    </div>
+    <script>
+        function countLength() {
+            var inputString = document.getElementById("inputString").value;
+            var stringLength = inputString.length;
+            document.getElementById("stringLength").innerHTML = "Độ dài chuỗi: " + stringLength;
+        }
+    </script>
+</body>
+
+</html>

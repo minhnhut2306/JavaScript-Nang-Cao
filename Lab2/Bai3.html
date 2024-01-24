@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuỗi Converter</title>
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+       
+    </style>
+</head>
+
+<body>
+
+    <h2>Chuỗi Converter</h2>
+
+    <label for="inputString">Nhập chuỗi:</label>
+    <input type="text" id="inputString">
+ 
+    <br> <br>
+
+    <label for="inputNumber">Nhập số dương n:</label>
+    <input type="number" id="inputNumber">
+
+    <br>
+
+    <button onclick="convertString()">Convert</button>
+
+    <div id="result"></div>
+
+    <script>
+        function convertString() {
+            var inputString = document.getElementById("inputString").value;
+            var inputNumber = document.getElementById("inputNumber").value;
+
+            if (inputString && inputNumber > 0) {
+                var resultString = inputString.substring(0, inputNumber);
+                if (resultString.length < inputString.length) {
+                    resultString += "...";
+                }
+                resultString += ".";
+
+                document.getElementById("result").innerText = resultString;
+            } else {
+                alert("Vui lòng nhập chuỗi và số dương n.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
