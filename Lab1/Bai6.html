@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+</head>
+
+<style type="text/css" media="screen">
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .form {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .button-container {
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    button {
+        width: 100px;
+        height: 40px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .user_item {
+        color: green;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="form">
+        <div>
+            <label>Date</label>
+            <input type="number" id="adddate" value="" placeholder="">
+        </div>
+        <div>
+            <label>Month</label>
+            <input type="number" id="addmonth" value="" placeholder="">
+        </div>
+        <div>
+            <label>Year</label>
+            <input type="number" id="addyear" value="" placeholder="">
+        </div>
+        <div class="button-container">
+            <button type="button" id="addaction" onclick="add()">Add</button>
+        </div>
+        <h3 id="day"></h3>
+    </div>
+    <script>
+        function add() {
+            var date = document.getElementById("adddate").value.trim();
+            var month = document.getElementById("addmonth").value.trim();
+            var year = document.getElementById("addyear").value.trim();
+            var dayElement = document.getElementById("day");
+
+            if (date === "" || month === "" || year === "") {
+                alert("Vui lòng nhập đầy đủ thông tin");
+            } else {
+                var day = {
+                    date: parseInt(date),
+                    month: parseInt(month) - 1,
+                    year: parseInt(year),
+                };
+                var newdate = moment(day);
+                var hienthi = newdate.format("dddd");
+                dayElement.innerHTML = hienthi;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style type="text/css" media="screen">
+    .user_item {
+        color: green;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <ul id="target"></ul>
+
+</body>
+<script>
+    var users = [
+        { id: 1, name: "James Smith", gender: 1 },
+        { id: 2, name: "Isla Brown", gender: 2 },
+        { id: 3, name: "Amelia Davies", gender: 2 },
+        { id: 4, name: "Jacob Evans", gender: 1 }
+    ];
+
+    var target = document.querySelector("#target");
+    // Sử dụng map để tạo một mảng chứa các thẻ li
+    var userItems = users.map(function (user) {
+        var genderText = user.gender === 1 ? "male" : "female";
+        return `<li class="user_item">${user.id} - ${user.name} - ${genderText}</li>`;
+    });
+    // Thêm các thẻ li vào ul#target
+    target.innerHTML = userItems.join('');
+</script>
+
+</html>

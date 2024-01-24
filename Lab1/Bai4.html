@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css" media="screen">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .form {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .user_item {
+            color: green;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+
+        .button-container {
+            padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        button {
+            width: 100px;
+            height: 40px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <div>
+            <label>ID</label>
+            <input type="number" id="adduserid" value="" placeholder="">
+        </div>
+        <div>
+            <label>Name</label>
+            <input type="text" id="addusertext" value="" placeholder="">
+        </div>
+        <div>
+            <label>Gender</label>
+            <select id="addusergender">
+                <option value="0"></option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>
+        </div>
+        <div class="button-container">
+            <button type="button" id="addaction" onclick="add()">Add</button>
+        </div>
+        <ul id="target"></ul>
+    </div>
+
+</body>
+<script>
+    var users = [
+        { id: 1, name: "Phạm Ngọc Quốc Khánh", gender: 1 },
+        { id: 2, name: "Huỳnh Văn Khánh", gender: 1 },
+        { id: 3, name: "Huỳnh Kim Thu Ngân", gender: 2 },
+        { id: 4, name: "Nguyễn Huỳnh Thanh Thùy", gender: 2 }
+    ];
+    var target = document.querySelector("#target");
+    var userItems = users.map(function (user) {
+        var genderText = user.gender === 1 ? "male" : "female";
+        return `<li class="user_item">${user.id} - ${user.name} - ${genderText}</li>`;
+    });
+    // Thêm các thẻ li vào ul#target
+    target.innerHTML = userItems.join('');
+
+    function add() {
+        var id = document.getElementById("adduserid").value.trim();
+        var name = document.getElementById("addusertext").value.trim();
+        var gender = document.getElementById("addusergender").value;
+
+
+        if (id === "" || name === "" || gender === "0") {
+            alert("Vui lòng điền đầy đủ thông tin");
+        } else {
+            var newuser = {
+                id: parseInt(id),
+                name: name,
+                gender: parseInt(gender)
+            };
+            users.push(newuser);
+            var userItems = users.map(function (user) {
+                var genderText = user.gender === 1 ? "male" : "female";
+                return `<li class="user_item">${user.id} - ${user.name} - ${genderText}</li>`;
+            });
+            // Thêm các thẻ li vào ul#target
+            target.innerHTML = userItems.join('');
+        }
+    }
+
+</script>
+
+</html>

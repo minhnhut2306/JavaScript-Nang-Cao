@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css" media="screen">
+        #color {
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            margin-bottom: 20px;
+            width: 200px;
+        }
+
+        #target {
+            border: 1px solid #000;
+            min-height: 300px;
+        }
+
+        .title {
+            color: red;
+            font-family: arial;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="txtInput" value="Nguyễn Minh Nhựt">
+    <h3>Nguyễn Minh Nhựt đẹp trai</h3>
+    <div id="target"></div>
+</body>
+<script>
+    var h3Text = document.querySelector("h3");
+    var txtInput = document.querySelector("#txtInput");
+    txtInput.onkeyop = function () {
+        h3Text.innerText = txtInput.value;
+    }
+    //tạo mới 1 dom
+    var target = document.querySelector("#target");
+    // tạo dom mới
+    var h2 = document.createElement("h2");
+    // set hiển thị
+    h2.innerText = "Hello Polytechnic ";
+    // tạo và gán giá trị
+    h2.setAttribute("class","title");
+    // add dom
+    target.appendChild(h2);
+
+</script>
+
+</html>
