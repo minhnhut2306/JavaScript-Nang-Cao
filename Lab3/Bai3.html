@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+</head>
+
+<body>
+    <h2>Student Information</h2>
+    <p>Name</p>
+    <input type="text" name="name" id="names">
+    <p>Age</p>
+    <input type="text" name="age" id="ages">
+    <p>Address</p>
+    <input type="text" name="address" id="addresss">
+    <p>Phone</p>
+    <input type="text" name="phone" id="phones">
+    <p>Birthday</p>
+    <input type="text" name="birthday" id="birthdays">
+    <hr>
+    <h2>Subject Information</h2>
+    <p>Subject Name</p>
+    <input type="text" name="subject" id="subjects">
+    <p>Teacher</p>
+    <input type="text" name="teacher" id="teachers">
+    <p>Point</p>
+    <input type="number" name="point" id="points">
+    <p>Year</p>
+    <input type="text" name="year" id="years">
+    <button onclick="addSubject()">Add</button>
+    <hr>
+    <p id="studentInfo"></p>
+    <p id="subjectInfo"></p>
+
+    <script>
+        function Student(name, age, address, phone, birthday) {
+            this.name = name;
+            this.age = age;
+            this.address = address;
+            this.phone = phone;
+            this.birthday = birthday;
+            this.subjects = [];
+        }
+
+        function Subject(name, teacher, point, year) {
+            this.name = name;
+            this.teacher = teacher;
+            this.point = point;
+            this.year = year;
+        }
+
+        function StudentPoly(name, age, address, phone, birthday) {
+            Student.call(this, name, age, address, phone, birthday);
+        }
+
+        // Kế thừa Student
+        StudentPoly.prototype = Object.create(Student.prototype);
+        StudentPoly.prototype.constructor = StudentPoly;
+
+        Student.prototype.displayInfo = function () {
+            return "Name: " + this.name + "<br>Age: " + this.age + "<br>Address: " + this.address + "<br>Phone: " +
+                this.phone + "<br>Birthday: " + this.birthday;
+        };
+
+        StudentPoly.prototype.addSubject = function (subject) {
+            this.subjects.push(subject);
+        };
+
+        function addSubject() {
+            var names = document.getElementById("names").value;
+            var ages = document.getElementById("ages").value;
+            var addresss = document.getElementById("addresss").value;
+            var phones = document.getElementById("phones").value;
+            var birthdays = document.getElementById("birthdays").value;
+
+            var subjects = document.getElementById("subjects").value;
+            var teachers = document.getElementById("teachers").value;
+            var points = document.getElementById("points").value;
+            var years = document.getElementById("years").value;
+
+            var student = new StudentPoly(names, ages, addresss, phones, birthdays);
+            var subject = new Subject(subjects, teachers, points, years);
+
+            student.addSubject(subject);
+
+            document.getElementById("studentInfo").innerHTML = student.displayInfo();
+
+            var subjectInfo = "Subject: " + subject.name + "<br>Teacher: " + subject.teacher + "<br>Point: " +
+                subject.point + "<br>Year: " + subject.year;
+
+            document.getElementById("subjectInfo").innerHTML = subjectInfo;
+        }
+    </script>
+</body>
+
+</html>

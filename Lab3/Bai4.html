@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Profiles</title>
+</head>
+
+<body>
+    <h2>Person Profiles</h2>
+    <p>Name</p>
+    <input type="text" name="name1" id="name1">
+    <p>Age</p>
+    <input type="text" name="age1" id="age1">
+    <p>Address</p>
+    <input type="text" name="address1" id="address1">
+
+    <p>Name</p>
+    <input type="text" name="name2" id="name2">
+    <p>Age</p>
+    <input type="text" name="age2" id="age2">
+    <p>Address</p>
+    <input type="text" name="address2" id="address2">
+
+    <button onclick="showProfiles()">Show Profiles</button>
+    <hr>
+    <div id="profileOutput"></div>
+
+    <script>
+        function Person(name, age, address) {
+            this.name = name;
+            this.age = age;
+            this.address = address;
+        }
+
+        Person.prototype.showProfile = function () {
+            return "Name: " + this.name + "<br>Age: " + this.age + "<br>Address: " + this.address;
+        };
+
+        var FirstPerson = {
+            __proto__: Person.prototype
+        };
+
+        var SecondPerson = {
+            __proto__: Person.prototype
+        };
+
+        function showProfiles() {
+            var name1 = document.getElementById("name1").value;
+            var age1 = document.getElementById("age1").value;
+            var address1 = document.getElementById("address1").value;
+
+            var name2 = document.getElementById("name2").value;
+            var age2 = document.getElementById("age2").value;
+            var address2 = document.getElementById("address2").value;
+
+            if (name1 === "" || age1 === "" || address1 === "" || name2 === "" || age2 === "" || address2 === "") {
+                alert("Yêu cầu nhập đầy đủ thông tin");
+                return;
+            }
+
+            FirstPerson.name = name1;
+            FirstPerson.age = age1;
+            FirstPerson.address = address1;
+
+            SecondPerson.name = name2;
+            SecondPerson.age = age2;
+            SecondPerson.address = address2;
+
+            var profileOutput = document.getElementById("profileOutput");
+            profileOutput.innerHTML = "<h3>First Person Profile</h3>" + FirstPerson.showProfile() +
+                "<h3>Second Person Profile</h3>" + SecondPerson.showProfile();
+        }
+    </script>
+</body>
+
+</html>

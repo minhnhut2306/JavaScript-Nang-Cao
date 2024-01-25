@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Định nghĩa lớp Sinh viên
+        function Student(id, fullname, email, avatar, address, study_major, avgScore) {
+            this.id = id;
+            this.fullname = fullname;
+            this.email = email;
+            this.avatar = avatar;
+            this.address = address;
+            this.study_major = study_major;
+            this.avgScore = avgScore;
+        }
+
+        // Thêm phương thức vào prototype của lớp Sinh viên
+        Student.prototype.getAvgScore = function () {
+            return this.avgScore;
+        };
+
+        Student.prototype.setAvgScore = function (avgScore) {
+            this.avgScore = avgScore;
+        };
+
+        Student.prototype.changeAddress = function (address) {
+            this.address = address;
+        };
+
+        // Tạo một đối tượng Sinh viên
+        var students = [
+            new Student(1, 'Nguyễn Minh Nhựt', 'nhut23@gmail.com', 'anh.jng', '123456789', 'Computer Science', 8.5),
+            new Student(2, 'Trần Ngọc Tú', 'Tu23@gmail.com', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbhBakvjyrxeTntGbcLF4UlIXK9ogEP3rb2bmXfAbVsJ2hd3iqXdZT0q5abw&s', '1233', 'Computer Science', 9.0),
+            new Student(3, 'Huỳnh Văn Khánh', 'khanh22@gmail.com', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTbSPQ54zmCLthN7JPbCmZoRcmbG4jC64t8WAY2RGBLa10tBVUtKfxnHeteg&s', '123456789', 'Computer Science', 8),
+            new Student(4, 'Trần Công Chính', 'chinh223@gmail.com', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTbSPQ54zmCLthN7JPbCmZoRcmbG4jC64t8WAY2RGBLa10tBVUtKfxnHeteg&s', '123456789', 'Computer Science', 90),
+        ];
+
+        // Lấy sinh viên đầu tiên từ mảng students
+        var sinhVien1 = students[0];
+
+        console.log('Trước khi thay đổi - Điểm Trung Bình:', sinhVien1.getAvgScore());
+        console.log('Trước khi thay đổi - Địa Chỉ:', sinhVien1.address);
+
+        sinhVien1.setAvgScore(9.0);
+        sinhVien1.changeAddress('456 Phố HCM, Thị trấn jajaa');
+
+        console.log('Sau khi thay đổi - Điểm Trung Bình:', sinhVien1.getAvgScore());
+        console.log('Sau khi thay đổi - Địa Chỉ:', sinhVien1.address);
+    </script>
+</body>
+
+</html>

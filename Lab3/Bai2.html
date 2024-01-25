@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+</head>
+
+<body>
+    <h2>Thông tin sinh viên</h2>
+    <p>Name</p>
+    <input type="text" name="name" id="names">
+    <p>Email</p>
+    <input type="text" name="email" id="emails">
+    <p>Address</p>
+    <input type="text" name="address" id="addresss">
+    <hr>
+    <h2>Thông tin môn học</h2>
+    <p>Subject Name</p>
+    <input type="text" name="subject" id="subjects">
+    <p>Point</p>
+    <input type="number" name="point" id="points">
+    <button onclick="addSubject()">Add</button>
+    <hr>
+    <p id="name"></p>
+    <p id="email"></p>
+    <p id="address"></p>
+    <p id="subject"></p>
+    <p id="point"></p>
+
+    <script>
+        function addSubject() {
+            var names = document.getElementById("names").value;
+            var emails = document.getElementById("emails").value;
+            var addresss = document.getElementById("addresss").value;
+            var subjects = document.getElementById("subjects").value;
+            var points = document.getElementById("points").value;
+
+            var studentInfo = {
+                name: names,
+                email: emails,
+                address: addresss
+            };
+
+            var subjectInfo = {
+                subject: subjects,
+                point: points
+            };
+
+            // Hiển thị thông tin cá nhân của sinh viên
+            document.getElementById("name").innerHTML = "Name: " + studentInfo.name;
+            document.getElementById("email").innerHTML = "Email: " + studentInfo.email;
+            document.getElementById("address").innerHTML = "Address: " + studentInfo.address;
+
+            // Hiển thị thông tin môn học
+            document.getElementById("subject").innerHTML = "Subject: " + subjectInfo.subject;
+            document.getElementById("point").innerHTML = "Point: " + subjectInfo.point;
+        }
+    </script>
+</body>
+
+</html>
