@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Định nghĩa hàm tạo Animal
+    function Animal(name, age, gender) {
+      this.name = name; // Tên của động vật
+      this.age = age; // Tuổi của động vật
+      this.gender = gender; // Giới tính của động vật
+      this.run = function () { // Phương thức chạy
+        console.log(this.name + " is running");
+      };
+    }
+
+    // Tạo một đối tượng duck từ lớp Animal
+    var duck = new Animal("Duck", 2, "male");
+    duck.haiColor = "yellow"; // Thêm thuộc tính mới
+    console.log(duck); // Gọi phương thức không tồn tại
+    duck.run(); // Gọi phương thức run
+  </script>
+  <script>
+    // Định nghĩa hàm tạo Animal
+    function Animal(name, age, gender) {
+      this.name = name; // Tên của động vật
+      this.age = age; // Tuổi của động vật
+      this.gender = gender; // Giới tính của động vật
+      this.run = function () { // Phương thức chạy
+        console.log(this.name + " is running");
+      };
+    }
+
+    // Định nghĩa hàm tạo Cat kế thừa từ Animal
+    function Cat(name, age, gender, haiColor) {
+      Animal.call(this, name, age, gender, haiColor); // Kế thừa thuộc tính và phương thức của Animal
+      this.haiColor = haiColor; // Thêm thuộc tính mới
+    }
+
+    // Tạo một đối tượng doraemon từ lớp Cat
+    var doraemon = new Cat("Doraemon", 2, "male", "green");
+    console.log(doraemon); // In ra thông tin của doraemon
+    doraemon.run(); // Gọi phương thức run từ Cat, kế thừa từ Animal
+  </script>
+</html>

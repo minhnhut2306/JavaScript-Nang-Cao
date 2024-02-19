@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Định nghĩa một đối tượng có tên là alex
+    var alex = {
+      id: 1234543,
+      name: "Nhựt",
+      age: 20,
+      isMarried: true,
+      childs: [
+        { name: "Quốc khánh", age: 21 },
+        { name: "Tú", age: 22 },
+      ],
+      // Phương thức để xuất hiện thông báo khi Alex mua một ngôi nhà
+      byeHouse: function () {
+        console.log("đã sở hữu một ngôi nhà ở Pennsylvania");
+      },
+    };
+    // In ra tên của alex
+    console.log(alex.name);
+    // In ra tuổi của alex
+    console.log(alex.age);
+    // Gọi phương thức byeHouse() để xuất thông báo
+    alex.byeHouse();
+    // Cập nhật tuổi của alex
+    alex.age = 48;
+    // In ra tuổi mới của alex
+    console.log(alex.age);
+    // In ra danh sách các con của alex
+    console.log(alex.childs);
+    // Tạo một con mới và thêm vào danh sách con của alex
+    var newChild = { name: "Quốc khánh", age: 1 };
+    alex.childs.push(newChild);
+    // In ra danh sách con của alex sau khi thêm con mới
+    console.log(alex.childs);
+  </script>
+  <script>
+    // Tạo một đối tượng rex bằng cách sử dụng constructor Object
+    var rex = new Object();
+    // Gán các thuộc tính cho đối tượng rex
+    rex.name = "Công chính";
+    rex.age = 20;
+    rex.gender = "male";
+    // Định nghĩa một phương thức goShopping() để mô phỏng việc đi mua sắm
+    rex.goShopping = function () {
+      console.log(this.name + " đang đi mua bánh");
+    };
+    // In ra đối tượng rex
+    console.log(rex);
+    // Gọi phương thức goShopping() của rex
+    rex.goShopping();
+  </script>
+</html>

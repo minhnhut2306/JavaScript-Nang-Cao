@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Định nghĩa hàm tạo Student để tạo đối tượng sinh viên
+    function Student(name, age) {
+      this.name = name; // Thuộc tính name của sinh viên
+      this.age = age; // Thuộc tính age của sinh viên
+    }
+
+    const s1 = new Student("Nhựt", 20); // Tạo một đối tượng sinh viên mới
+
+    // Thêm phương thức sayHello vào prototype của Student
+    Student.prototype.sayHello = function () {
+      // Hiển thị thông tin về sinh viên, bao gồm tên và tuổi
+      console.log("My name " + this.name + " I am " + this.age + " years old");
+    };
+
+    s1.sayHello(); // Gọi phương thức sayHello trên đối tượng s1 để hiển thị thông tin của sinh viên
+  </script>
+</html>

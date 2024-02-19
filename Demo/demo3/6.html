@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Định nghĩa một đối tượng chứa thông tin chung của mọi người
+    var PeoplePro = {
+      name: "Nguyễn Minh Nhựt",
+      age: 20,
+      gender: "Nam",
+      hobby: "Truyền thống",
+      // Phương thức hiển thị thông tin cá nhân của mỗi người
+      showInfo: function () {
+        return "Tôi tên " + this.name + ", năm nay " + this.age + " tuổi.";
+      },
+    };
+
+    // Tạo đối tượng minhNhut kế thừa từ PeoplePro
+    var minhNhut = {
+      __proto__: PeoplePro, // Sử dụng __proto__ để thiết lập kế thừa
+    };
+
+    // Tạo đối tượng trangAnh kế thừa từ PeoplePro
+    var trangAnh = {
+      __proto__: PeoplePro, // Sử dụng __proto__ để thiết lập kế thừa
+    };
+
+    // Thiết lập thông tin riêng cho đối tượng trangAnh
+    trangAnh.name = "Trần Trang Anh";
+    trangAnh.age = 30;
+
+    // Hiển thị thông tin của mỗi người
+    console.log(minhNhut.showInfo());
+    console.log(trangAnh.showInfo());
+  </script>
+</html>

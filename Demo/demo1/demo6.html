@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./momen.js"></script>
+  </head>
+  <body>
+    <script>
+      var now = moment().format("YYYY-MM-DD");
+      console.log(now);
+    </script>
+    <script>
+      var date = moment("2023-10-20").format("YYYY-MM-DD");
+      console.log(date);
+    </script>
+    <script>
+      console.log(moment("12-23-1994", "MM-DD-YYYY").format("YYYY MM DD"));
+      console.log(
+        moment("12-23-1994", "MM-DD-YYYY", "DD/MM/YYYY").format("YYYY-MM-DD")
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="">Số điện thoại:</label>
+        <input type="text" id="phone" value="" placeholder="">
+        <br>
+        <span style="color: red;" id="validate"></span>
+        <br>
+        <button id="check">CHECK</button>
+    </div>
+</body>
+
+<script>
+    var phone = document.getElementById("phone");
+    var validate = document.getElementById("validate");
+    var check = document.getElementById("check");
+    phone.onblur = function(){
+        var val = this.value;
+        var pattern = /(09|03)+([0-9]{8})\b/g;
+        var check = pattern.test(val);
+        if(!check){
+            validate.innerHTML = "Số điện thoại không đúng định dạng";
+        }else{
+            validate.innerHTML = "số điện thoại đúng định dạng";
+        }
+    }
+    check.onclick = function(){
+        var val = phone.value;
+        var pattern = /(09|03)+([0-9]{8})\b/g;
+        var check = pattern.test(val);
+        if(!check){
+            validate.innerHTML = "Số điện thoại không đúng định dạng";
+        }else{
+            validate.innerHTML = "số điện thoại đúng định dạng";
+        }
+    }
+</script>
+</html>

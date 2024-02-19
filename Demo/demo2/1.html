@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Tính độ dài của chuỗi
+    var str = "cao đẳng thực hành fpt polytechnic";
+    console.log(str.length);
+  </script>
+  <script>
+    // Tìm chỉ mục xuất hiện đầu tiên của chuỗi con
+    var str = "cao đẳng thực hành fpt polytechnic";
+    var keyword = "fpt";
+    console.log(str.indexOf(keyword));
+  </script>
+  <script>
+    // Tìm chỉ mục xuất hiện cuối cùng của chuỗi con
+    var str = "cao đẳng thực hành fpt polytechnic";
+    var keyword = "hành";
+    console.log(str.lastIndexOf(keyword));
+  </script>
+  <script>
+    // Tìm kiếm một chuỗi con và tìm chỉ mục của nó
+    var str = "cao đẳng thực hành fpt polytechnic";
+    var keyword = "fpt";
+    console.log(str.search(keyword));
+  </script>
+  <script>
+    // Cắt một phần của chuỗi từ vị trí bắt đầu đến vị trí kết thúc
+    var str = "cao đẳng thực hành fpt polytechnic";
+    var str2 = str.substring(6, 9);
+    console.log(str);
+    console.log(str2);
+  </script>
+  <script>
+    // Cắt một phần của chuỗi từ vị trí bắt đầu đến vị trí kết thúc
+    var str = "cao đẳng thực hành fpt polytechnic";
+    var str2 = str.slice(6, 9);
+    console.log(str);
+    console.log(str2);
+  </script>
+  <script>
+    // Cắt một phần của chuỗi bắt đầu từ vị trí và có độ dài xác định
+    var str = "cao đẳng thực hành fpt polytechnic";
+    var str2 = str.substr(6, 9);
+    console.log(str);
+    console.log(str2);
+  </script>
+  <script>
+    // Chuyển chuỗi thành chữ in hoa
+    var str = "cao đẳng thực hành fpt polytechnic";
+    var str2 = str.toUpperCase();
+    console.log(str);
+    console.log(str2);
+  </script>
+  <script>
+    // Chuyển chuỗi thành chữ in hoa phù hợp với ngôn ngữ
+    var str = "cao đẳng thực hành fpt polytechnic";
+    var str2 = str.toLocaleUpperCase();
+    console.log(str);
+    console.log(str2);
+  </script>
+  <script>
+    // Loại bỏ khoảng trắng từ hai đầu của chuỗi
+    var str = "    hello world     ";
+    console.log(str.length);
+    var str2 = str.trim();
+    console.log(str2.length);
+    console.log(str2);
+  </script>
+  <script>
+    // Thay thế một chuỗi con bằng chuỗi khác
+    var str = "hello fpt ";
+    var str2 = str.replace("polytechnic");
+    console.log(str);
+    console.log(str2);
+  </script>
+  <script>
+    // Tách chuỗi thành mảng các chuỗi con dựa trên một ký tự phân cách
+    var str = "hello fpt ";
+    var str2 = str.split(" ");
+    console.log(str);
+    console.log(str2);
+  </script>
+  <script>
+    // Nối hai chuỗi với nhau
+    var str = "hello  ";
+    var str2 = str.replace("fpt polytechnic");
+    var str3 = str.concat(str2);
+    console.log(str3);
+  </script>
+</html>

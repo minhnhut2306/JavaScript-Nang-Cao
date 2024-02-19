@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Định nghĩa hàm tạo đối tượng Vận động viên
+    function Vandongvien(mavandongvien, hovaten, ngaysinh) {
+      // Các thuộc tính của đối tượng
+      this.mavandongvien = mavandongvien;
+      this.hovaten = hovaten;
+      this.ngaysinh = ngaysinh;
+      this.giaithuong = []; // Mảng lưu trữ các giải thưởng
+
+      // Phương thức kiểm tra điều kiện tuổi
+      this.kiemtradieukien = function (ngaytochuc, tuoidudk) {
+        ntc = new Date(); // Ngày hiện tại
+        ns = new Date(this.ngaysinh); // Ngày sinh
+        if ((ntc - ns) / 86400000 / 30 / 12 >= tuoidudk) {
+          return true; // Nếu đủ tuổi, trả về true
+        } else {
+          return false; // Nếu chưa đủ tuổi, trả về false
+        }
+      };
+
+      // Phương thức thêm giải thưởng vào danh sách
+      this.themgiaithuong = function (giaithuong) {
+        this.giaithuong.push(giaithuong);
+      };
+
+      // Phương thức hiển thị danh sách giải thưởng
+      this.danhsachgiai = function () {
+        console.log(this.giaithuong);
+      };
+    }
+
+    // Tạo một đối tượng vận động viên
+    var hai = new Vandongvien("001", "Hai", "2000-06-23");
+    console.log(hai);
+    hai.themgiaithuong("hạng 1"); // Thêm giải thưởng cho vận động viên 'hai'
+    hai.danhsachgiai(); // Hiển thị danh sách giải thưởng của vận động viên 'hai'
+    hai.themgiaithuong("hạng 3"); // Thêm giải thưởng khác cho vận động viên 'hai'
+    hai.danhsachgiai(); // Hiển thị lại danh sách giải thưởng sau khi thêm
+    console.log(hai.kiemtradieukien("2024-01-19", 19)); // Kiểm tra điều kiện tuổi của 'hai'
+
+    // Tạo một đối tượng vận động viên khác
+    var lam = new Vandongvien("002", "Lam", "2001-07-22");
+    console.log(lam);
+    console.log(lam.kiemtradieukien("2024-01-19", 19)); // Kiểm tra điều kiện tuổi của 'lam'
+  </script>
+</html>

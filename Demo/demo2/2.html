@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Input để nhập chuỗi -->
+    <input type="text" id="input" />
+    <!-- Nút để kiểm tra -->
+    <button type="button" id="check">Check</button>
+    <br />
+    <!-- Hiển thị chuỗi đảo ngược -->
+    <h2>Chuỗi đảo ngược: <span id="output"></span></h2>
+    <!-- Hiển thị kết quả kiểm tra chuỗi -->
+    <h2>Kết quả chuỗi vừa nhập: <span id="result"></span></h2>
+  </body>
+  <script>
+    // Xác định các DOM elements
+    var input = document.getElementById("input");
+    var button = document.getElementById("check");
+    var output = document.getElementById("output");
+    var result = document.getElementById("result");
+
+    // Bắt sự kiện khi nút "Check" được nhấn
+    button.onclick = function () {
+      var inputValue = input.value;
+      // Kiểm tra xem ô input có rỗng không
+      if (inputValue !== "") {
+        // Chuyển chuỗi thành một mảng các từ bằng cách tách chúng bằng dấu cách
+        var str2arr = inputValue.split(" ");
+        // Đảo ngược mảng
+        var reversearr = str2arr.reverse();
+        // Ghép các phần tử trong mảng lại thành một chuỗi mới
+        var outputValue = str2arr.join("");
+        // Hiển thị chuỗi đảo ngược
+        output.innerText = outputValue;
+        // Kiểm tra xem chuỗi mới có giống với chuỗi ban đầu không
+        if (outputValue === inputValue) {
+          result.innerText = "Là chuỗi palindrome";
+        } else {
+          result.innerText = "Không là chuỗi palindrome";
+        }
+      }
+    };
+  </script>
+</html>

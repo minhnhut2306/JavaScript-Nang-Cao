@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Định nghĩa đối tượng sinh viên
+    var sinhvien = {
+      masinhvien: "PS34031", // Mã số sinh viên
+      hovaten: "Nguyen Minh Nhut", // Họ và tên
+      lop: "MD18306", // Lớp học
+      ngaynhaphoc: "2023-01-15", // Ngày nhập học
+      diemtrungbinh: 9, // Điểm trung bình
+
+      // Phương thức tính học lực dựa trên điểm trung bình
+      tinhhocloc: function (diemtrungbinh) {
+        if (diemtrungbinh >= 8) {
+          console.log("học lực giỏi");
+        } else if (diemtrungbinh >= 7) {
+          console.log("học lực khá");
+        } else if (diemtrungbinh >= 5) {
+          console.log("học lực trung bình");
+        } else {
+          console.log("học lực yếu");
+        }
+      },
+
+      // Phương thức tính thời gian còn lại đến khi ra trường
+      thoigianratruong: function () {
+        var t = new Date(); // Ngày hiện tại
+        var tinh = new Date(sinhvien.ngaynhaphoc); // Ngày nhập học
+        console.log(
+          `Dự kiến còn ${(
+            28 - (t - tinh) / 86400000 / 30
+          ).toFixed()} tháng nữa sẽ ra trường`
+        );
+      },
+    };
+
+    // Gán điểm trung bình mới cho sinh viên
+    sinhvien.diemtrungbinh = 9;
+
+    // Hiển thị thông tin sinh viên và kết quả của các phương thức
+    console.log(sinhvien);
+    console.log(sinhvien.tinhhocloc(sinhvien.diemtrungbinh));
+    console.log(sinhvien.thoigianratruong());
+  </script>
+</html>
