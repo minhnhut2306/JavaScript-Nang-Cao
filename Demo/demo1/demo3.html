@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Chuyển mảng thành chuỗi
+    var languages = ["English", "Vietnamese", "Chinese", "Japanese"];
+    var text = languages.join(", ");
+    console.log(text);
+  </script>
+
+  <script>
+    var str = ["javascript", "nâng ", "cao", "Fpt", "polytechnic"];
+    var text = str.join("_");
+    console.log(text);
+  </script>
+
+  <script>
+    var arr = [1, 3, 6, 9];
+    console.log(arr);
+    arr.push(12);
+    console.log(arr);
+  </script>
+
+  <script>
+    // Lấy phần tử cuối và xóa khỏi mảng
+    var arr = [1, 3, 6, 9];
+    console.log(arr);
+    var lastItem = arr.pop();
+    console.log(arr);
+    console.log(lastItem);
+  </script>
+  <script>
+    // Thêm vào đầu mảng
+    var arr = [1, 3, 6, 9];
+    console.log(arr);
+    arr.unshift(62);
+    console.log(arr);
+  </script>
+  <script>
+    // Trích xuất 1 số phần tử
+    var arr = [1, 3, 6, 9];
+    var arr2 = arr.slice(1, 3); // Trích xuất phần tử từ vị trí 1 đến 2
+    console.log(arr);
+    console.log(arr2);
+  </script>
+  <script>
+    // lất phần tử đầu và xóa khỏi mảng
+    var arr = [1, 3, 6, 9];
+    console.log(arr);
+    var firstItem = arr.shift();
+    console.log(arr);
+    console.log(firstItem);
+  </script>
+  <script>
+    // Tìm kiếm trong mảng
+    var arr = [1, 3, 6, 9];
+    console.log(arr);
+    var index = arr.indexOf(6);
+    console.log(index);
+  </script>
+  <script>
+    // lọc phần tử theo yên cầu
+    var arr = [11, 33, 64, 92, 23, 6, 28, 27];
+    var arr2 = arr.filter(function (value, index) {
+      return value % 2 === 0;
+    });
+    console.log(arr);
+    console.log(arr2);
+  </script>
+  <script>
+    // đảo thứ tự phần tử
+    var arr = [1, 3, 6, 9];
+    console.log(arr);
+    var arr2 = arr.reverse();
+    console.log(arr2);
+  </script>
+  <script>
+    //xóa phần tử tại vị trí index
+    var arr = [1, 3, 5, 9];
+    console.log(arr);
+    arr.splice(2, 2);
+    console.log(arr);
+  </script>
+  <script>
+    // sắp xếp
+    var arr = [12, 3, 57, 22, 33, 99, 2];
+    console.log(arr.sort());
+  </script>
+  <script>
+    // sắp xếp theo thứ tự tăng
+    var arr = [12, 3, 57, 22, 33, 99, 2];
+    console.log(arr);
+    console.log(
+      arr.sort(function (a, b) {
+        return a - b;
+      })
+    );
+  </script>
+  <script>
+    // sắp xếp theo thứ tự giảm dần
+    var arr = [12, 3, 57, 22, 33, 99, 2];
+    console.log(arr);
+    console.log(
+      arr.sort(function (a, b) {
+        return b - a;
+      })
+    );
+  </script>
+  <script>
+    //duyệt
+    var arr = [1, 3, 5, 9];
+    arr.forEach(function (currenValue, index, array) {
+      console.log(currenValue + " " + index);
+    });
+  </script>
+  <script>
+    // lọc ra các tên con vật
+    var animals = [
+      {
+        name: "cat",
+        sound: "meow",
+      },
+      {
+        name: "dog",
+        sound: "woof",
+      },
+      {
+        name: "cow",
+        sound: "moo",
+      },
+      {
+        name: "pig",
+        sound: "oink",
+      },
+      {
+        name: "fish",
+        sound: "blow",
+      },
+    ];
+    var name = animals.map((animal, index, animals) => {
+      return animal.name;
+    });
+    console.log(animals);
+    console.log(name);
+  </script>
+</html>

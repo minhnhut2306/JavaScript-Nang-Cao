@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    var timeobj = new Date();
+    console.log(timeobj);
+  </script>
+  <script>
+    var timeobj = new Date(233333);
+    console.log(timeobj);
+  </script>
+  <script>
+    var timeobj = new Date("2023-01-24");
+    console.log(timeobj);
+  </script>
+  <script>
+    var timeobj = new Date(2023, 10, 29, 30, 20);
+    console.log(timeobj);
+  </script>
+  <script>
+    //lấy mili giây
+    var miliseconds = Date.parse("2023-01-24");
+    console.log(miliseconds);
+    var date = new Date(miliseconds);
+    console.log(date);
+  </script>
+  <script>
+    //tháng 11 có index = 10
+    var date = new Date();
+    date.setFullYear(2023, 10, 20);
+    console.log(date);
+  </script>
+  <script>
+    var date = new Date();
+    console.log(date);
+    date.setDate(date.getDate() + 50);
+    console.log(date);
+  </script>
+</html>

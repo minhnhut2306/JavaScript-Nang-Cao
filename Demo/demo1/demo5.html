@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <!--thư viện lodash-->
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script>
+    var arr = ["Nguyễn", "Minh ", "Nhựt"];
+    var str = _.join(arr, "-");
+    console.log(str);
+  </script>
+  <script>
+    var arr = [1];
+    var other = _.concat(arr, 2, [3], [[4]]);
+    console.log(other);
+  </script>
+  <script>
+    var arr = ["a", "b", "c", "d", "e"];
+    var arr2 = _.chunk(arr, 2);
+    console.log(arr2);
+  </script>
+  <script>
+    var user = [
+      { user: "khánh", " acctive": false },
+      { user: "nguyễn", acctive: true },
+      { " user": "nhựt", " acctive": false },
+    ];
+    console.log(
+      _.findIndex(user, function (o) {
+        return o.user == "tú";
+      })
+    );
+  </script>
+  <script>
+    var user = [
+      { user: "khánh", " acctive": false },
+      { user: "nguyễn", acctive: true },
+      { " user": "nhựt", " acctive": false },
+    ];
+    console.log(
+      _.findIndex(user, function (o) {
+        return !o.acctive;
+      })
+    );
+  </script>
+  <script>
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    console.log(
+      _.find(arr, function (a) {
+        return a > 4;
+      })
+    );
+  </script>
+  <script>
+    console.log(_.includes([1, 2, 3, 4], 1));
+    console.log(_.includes([1, 2, 3, 4, 5], 2, 2));
+  </script>
+  <script>
+    console.log(
+      _.map([2, 3], function (n) {
+        return n * n;
+      })
+    );
+    console.log(_.map(user, "user"));
+  </script>
+  <script>
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var evens = _.remove(arr, function (a) {
+      return a % 2 == 0;
+    });
+    console.log(arr);
+    console.log(evens);
+  </script>
+</html>
