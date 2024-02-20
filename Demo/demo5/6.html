@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body></body>
+<script>
+  function assgmett1() {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        var ass1 = prompt("Nhập điểm ass1");
+        return resolve(parseInt(ass1));
+      }, 1000);
+    });
+  }
+  function assgmett2() {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        var ass2 = prompt("Nhập điểm ass2");
+        return resolve(parseInt(ass2));
+      }, 1000);
+    });
+  }
+  Promise.all([assgmett1(), assgmett2()]).then(function (result) {
+    console.log(result);
+    var avgScore = (result[0] + result[1]) / 2;
+    alert("Điểm trung bình là: " + avgScore);
+  });
+</script>
+</html>

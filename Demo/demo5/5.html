@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Loading...................</h2>
+  </body>
+  <script>
+    var h2 = document.querySelector("h2");
+    function quatrinhhoc(totalMark, time) {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          if (totalMark >= 9) {
+            resolve(totalMark);
+          } else {
+            reject("Không đủ điều kiện xuất sắc");
+          }
+        }, time);
+      });
+    }
+    var diemtongket = prompt("Nhập điểm tổng kết: ");
+    var time = prompt("Thời gian delay (ms): ");
+    quatrinhhoc(parseInt(diemtongket), parseInt(time))
+      .then(function (result) {
+        h2.innerHTML = "Điểm tổng kết: " + result;
+      })
+      .catch(function (err) {
+        h2.innerHTML = err;
+      });
+  </script>
+</html>

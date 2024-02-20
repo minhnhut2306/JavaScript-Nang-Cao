@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // Định nghĩa hàm để thực hiện công việc học bài
+    function doHomework(subject, callback) {
+        // Hiển thị thông báo về môn học
+        alert('Môn đang học: ' + subject);
+        // Yêu cầu nhập điểm và gọi hàm callback với điểm và môn học là đối số
+        var score = prompt('Điểm đạt được (theo hệ số 10): ');
+        callback(score, subject);
+    }
+
+    // Định nghĩa hàm callback để xác định kết quả của việc học
+    function alertFinished(score, subject) {
+        // Kiểm tra điểm và hiển thị thông báo tương ứng
+        if (score < 5) {
+            alert('Không qua môn được ' + subject);
+        } else if (score >= 5 && score < 7) {
+            alert('Đủ điều kiện qua môn ' + subject + ' - Học lực trung bình');
+        } else if (score >= 7 && score < 9) {
+            alert('Đủ điều kiện qua môn ' + subject + ' - Học lực khá');
+        } else {
+            alert('Đủ điều kiện qua môn ' + subject + ' - Học lực giỏi');
+        }
+    }
+
+    // Gọi hàm doHomework với môn học và hàm callback
+    doHomework('English', alertFinished);
+</script>
+</html>

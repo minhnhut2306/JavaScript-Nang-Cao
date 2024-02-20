@@ -1,0 +1,72 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function thuchienday(viecnaodo) {
+      viecnaodo();
+    }
+    function danhrang(viecnaodo) {
+      viecnaodo();
+    }
+    function ansang(viecnaodo) {
+      viecnaodo();
+    }
+    function main() {
+      thuchienday(function () {
+        danhrang(function () {
+          ansang(function () {
+            console.log("OMG!!!");
+          });
+        });
+      });
+    }
+  </script>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function thuchienday() {
+      return new Promise((resolve, reject) => {
+        // Thực hiện công việc của thuchienday ở đây
+        console.log("thuchienday");
+        resolve();
+      });
+    }
+
+    function danhrang() {
+      return new Promise((resolve, reject) => {
+        // Thực hiện công việc của danhrang ở đây
+        console.log("danhrang");
+        resolve();
+      });
+    }
+
+    function ansang() {
+      return new Promise((resolve, reject) => {
+        // Thực hiện công việc của ansang ở đây
+        console.log("ansang");
+        resolve();
+      });
+    }
+
+    async function main() {
+      await thuchienday();
+      await danhrang();
+      await ansang();
+      console.log("OMG!!!");
+    }
+
+    main();
+  </script>
+</html>

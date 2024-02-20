@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // định nghĩa hàm xử lý
+    function getNameCallback(name) {
+        alert("hello!" +name);
+    }
+    // định nghĩa hàm sẽ nhan hàm callback
+    function testFunction(callback){
+        if (callback) callback();
+    }
+    var name = "Nguyễn Minh Nhựt"
+    testFunction(getNameCallback(name));
+</script>
+</html>

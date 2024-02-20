@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    setTimeout(function () {
+      document.querySelector("body").style.backgroundColor = "yellow";
+      setTimeout(function () {
+        document.querySelector("body").style.backgroundColor = "green";
+      }, 1000);
+    }, 1000);
+  </script>
+
+  <script>
+    function setColorPerTime(color, time) {
+      return new Promise(function (resolve) {
+        setTimeout(function () {
+          document.querySelector("body").style.backgroundColor = color;
+          resolve();
+        }, time);
+      });
+    }
+
+    setColorPerTime("yellow", 1000)
+      .then(function () {
+        return setColorPerTime("green", 1000);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  </script>
+</html>
