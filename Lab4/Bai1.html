@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <span>
+      <input type="number" placeholder="Cân nặng" id="weight"/>
+      <input type="number" placeholder="Chiều cao" id="height"/>
+      <button onclick="calculateBMI()">Enter</button>
+    </span>
+    <p id="bmi">Chỉ số BMI của bạn là:</p>
+  </div>
+<script>
+  function calculateBMI() {
+    var weight = document.getElementById("weight").value;
+    var height = document.getElementById("height").value;
+    var met = height/100;
+    var bmi = weight / (met * met);
+    document.getElementById("bmi").textContent = "Chỉ số BMI của bạn là: " + bmi.toFixed(2);
+  }
+</script>
+</body>
+</html>

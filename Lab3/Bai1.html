@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function Student(id, fullname, email, avatar, address, major, avgScore) {
+      this.id = id;
+      this.fullname = fullname;
+      this.email = email;
+      this.avatar = avatar;
+      this.address = address;
+      this.major = major;
+      this.avgScore = avgScore;
+
+      // Phương thức tính điểm trung bình
+      this.getAvgScore = function () {
+        return this.avgScore;
+      };
+
+      // Phương thức thiết lập điểm trung bình mới
+      this.setAvgScore = function (point) {
+        this.avgScore = point;
+      };
+
+      // Phương thức thay đổi địa chỉ
+      this.changeAddress = function (address) {
+        this.address = address;
+      };
+    }
+
+    // Khởi tạo một đối tượng Student mới
+    var student1 = new Student(
+      1,
+      "Nguyễn Minh Nhựt",
+      "nhutchodien2306@gmail.com",
+      "https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/407361664_320090787500523_734122980293464756_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeGjE-sGXZF3FPX77PA61fkHxMflKN-1V4zEx-Uo37VXjLV7D5eNmGWzTF7MB4oMDx5lZO7Gvz4csuQ80apMkwSL&_nc_ohc=SXbB3b4ns50AX_SCloh&_nc_ht=scontent.fsgn8-4.fna&oh=00_AfCgD8wbY8tRTMof9dQBafW-yh3hQKqf6Ln4fDcD7zZvVQ&oe=65D93C67",
+      "Bến Tre",
+      "Công nghệ thông tin",
+      9
+    );
+
+    // Sử dụng các phương thức
+    console.log("Điểm trung bình lúc đầu: ", student1.getAvgScore());
+    student1.setAvgScore(10);
+    console.log("Điểm trung bình mới: ", student1.getAvgScore());
+    console.log("Địa chỉ lúc đầu: ", student1.address);
+    student1.changeAddress("Hồ Chí Minh");
+    console.log("Địa chỉ mới: ", student1.address);
+  </script>
+</html>
