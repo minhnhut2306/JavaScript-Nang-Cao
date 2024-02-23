@@ -7,3 +7,6 @@ let users = [
     { username: 'user2', password: 'pass2' },
     { username: 'user3', password: 'pass3' }
 ];
+let numbers = [1, -2, 3, -4, 0];
+let numbers2 = [1,2,3,4,5,6,7,8,9,10]
+let points = [6,9,5,4,9]

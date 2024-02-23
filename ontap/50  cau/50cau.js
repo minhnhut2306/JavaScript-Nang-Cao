@@ -1,3 +1,4 @@
+
 // câu 1
 console.log("câu 1");
 var c1 = document.getElementById("c1");
@@ -224,3 +225,280 @@ const processModulus = () => {
   c30.innerHTML = moduns(5, 3);
 };
 processModulus();
+
+// câu 31
+console.log("câu 31");
+const calculateSum = (a, b, callback) => {
+  let sum = a + b;
+  callback(sum);
+};
+const printSum = (sum) => {
+  var c31 = document.getElementById("c31");
+  console.log(`Sum is: ${sum}`);
+  c31.innerHTML = `Sum is: ${sum}`;
+};
+calculateSum(5, 3, printSum);
+
+// câu 32
+console.log("câu 32");
+const createFullName = (firstName, lastName, callback) => {
+  let fullname = `${firstName} ${lastName}`;
+  callback(fullname);
+};
+
+const printFullName = (fullName) => {
+  console.log(`Full name is: ${fullName}`);
+  var c32 = document.getElementById("c32");
+  c32.innerHTML = `Full name is: ${fullName}`;
+};
+
+createFullName("John", "Doe", printFullName);
+
+//câu 33
+console.log("câu 33");
+const checkNumber = (callback) => {
+  let number = Number(prompt("Nhập số"));
+  callback(number);
+};
+const printEvenOrOdd = (number) => {
+  var c33 = document.getElementById("c33");
+  if (number % 2 === 0) {
+    console.log(`${number} is even.`);
+    c33.innerHTML = `${number} is even.`;
+  } else {
+    console.log(`${number} is odd.`);
+    c33.innerHTML = `${number} is odd.`;
+  }
+};
+checkNumber(printEvenOrOdd);
+
+// câu 34
+const processNumbers = (numbers, callback) => {
+  for (let number of numbers) {
+    callback(number);
+  }
+};
+const printPositiveOrNegative = (number) => {
+  var c34 = document.getElementById("c34");
+  if (number > 0) {
+    console.log(`${number} is positive.`);
+    c34.innerHTML = `${number} is positive.`;
+  } else if (number < 0) {
+    console.log(`${number} is negative.`);
+    c34.innerHTML = `${number} is negative.`;
+  } else {
+    console.log(`${number} is zero.`);
+    c34.innerHTML = `${number} is zero.`;
+  }
+};
+
+processNumbers(numbers, printPositiveOrNegative);
+
+// câu 35
+console.log("câu 35");
+const ChainString = (str, callback) => {
+  callback(str.length);
+};
+const printLength = (length) => {
+  var c35 = document.getElementById("c35");
+  console.log(`Độ dài chuỗi là  ${length}`);
+  c35.innerHTML = `Độ dài chuỗi là ${length}`;
+};
+ChainString(str, printLength);
+
+// câu 36
+console.log("câu 36");
+const sumaddcheck = (numbers2, callback) => {
+  let sum = numbers2.reduce((a, b) => a + b);
+  callback(sum);
+};
+const printfsum = (sum) => {
+  var c36 = document.getElementById("c36");
+  if (sum % 2 === 0) {
+    console.log(`sum ${sum}`);
+    c36.innerHTML = `sum ${sum}`;
+  } else {
+    console.log(`sum ${sum}`);
+    c36.innerHTML = `sum ${sum}`;
+  }
+};
+sumaddcheck(numbers2,printfsum);
+
+// câu 37
+console.log("câu 37");
+const sumpoint = (points, callback) => {
+  let sum = points.reduce((a, b) => a + b,0)/ (points.length);
+  callback(sum);
+}
+const printpoid = sum => {
+  var c37 = document.getElementById("c37");
+  if (sum >= 5) {
+    console.log(`Đậu ${sum}`);
+    c37.innerHTML = `Đậu ${sum}`;
+  } else {
+    console.log(`Rớt ${sum}`);
+    c37.innerHTML = `Rớt ${sum}`;
+  }
+}
+sumpoint(points, printpoid);
+
+// câu 38
+console.log("câu 38");
+
+// câu 39
+console.log("câu 39");
+
+// câu 40
+console.log("câu 40");
+
+// câu 41
+function fetchDataFromAPI() {
+  fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Dữ liệu từ API:', data);
+    })
+    .catch(error => {
+      console.error('Có lỗi xảy ra:', error);
+    });
+}
+fetchDataFromAPI();
+
+// câu 42
+function fetchDataFromMultipleAPIs() {
+  const urls = [
+    'https://jsonplaceholder.typicode.com/posts/1',
+    'https://jsonplaceholder.typicode.com/posts/2'
+  ];
+  const requests = urls.map(url => fetch(url).then(response => response.json()));
+  Promise.all(requests)
+    .then(data => {
+      console.log('Dữ liệu từ các API:', data);
+    })
+    .catch(error => {
+      console.error('Có lỗi xảy ra khi lấy dữ liệu:', error);
+    });
+}
+fetchDataFromMultipleAPIs();
+//câu 43
+function addDataToAPI(data) {
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(result => {
+    console.log('Dữ liệu đã được thêm vào API:', result);
+  })
+  .catch(error => {
+    console.error('Có lỗi xảy ra khi thêm dữ liệu vào API:', error);
+  });
+}
+addDataToAPI();
+
+// câu 44
+function deleteDataFromAPI() {
+  fetch('https://jsonplaceholder.typicode.com/posts/1', {
+    method: 'DELETE'
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Có lỗi xảy ra khi xóa dữ liệu từ API');
+    }
+    console.log('Dữ liệu đã được xóa thành công từ API');
+  })
+  .catch(error => {
+    console.error('Có lỗi xảy ra khi xóa dữ liệu từ API:', error);
+  });
+}
+deleteDataFromAPI();
+
+//câu 45
+function updateDataInAPI(data) {
+  fetch('https://jsonplaceholder.typicode.com/posts/1', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Có lỗi xảy ra khi cập nhật dữ liệu trên API');
+    }
+  })
+  .catch(error => {
+    console.error('Có lỗi xảy ra khi cập nhật dữ liệu trên API:', error);
+  });
+}
+updateDataInAPI(data);
+
+//câu 46
+async function fetchDataFromAPIaxios() {
+  try {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
+    console.log('Dữ liệu từ API:', response.data);
+    // Xử lý dữ liệu ở đây nếu cần
+  } catch (error) {
+    console.error('Có lỗi xảy ra:', error);
+  }
+}
+fetchDataFromAPIaxios();
+
+//câu 47
+async function fetchDataFromMultipleAPIsaxios() {
+  try {
+    const urls = [
+      'https://jsonplaceholder.typicode.com/posts/1',
+      'https://jsonplaceholder.typicode.com/posts/2'
+    ];
+    const requests = urls.map(url => axios.get(url));
+    const responses = await Promise.all(requests);
+    const data = responses.map(response => response.data);
+    console.log('Dữ liệu từ các API:', data);
+  } catch (error) {
+    console.error('Có lỗi xảy ra:', error);
+  }
+}
+fetchDataFromMultipleAPIsaxios();
+
+// câu 48
+async function addDataToAPIaxios(data) {
+  try {
+    const response = await axios.post('https://jsonplaceholder.typicode.com/posts', data);
+    console.log('Dữ liệu đã được thêm vào API:', response.data);
+  } catch (error) {
+    console.error('Có lỗi xảy ra khi thêm dữ liệu vào API:', error);
+  }
+}
+addDataToAPIaxios(data);
+
+// câu 49
+async function deleteDataFromAPIaxios() {
+  try {
+    const response = await axios.delete('https://jsonplaceholder.typicode.com/posts/1');
+    console.log('Dữ liệu đã được xóa từ API:', response.data);
+  } catch (error) {
+    console.error('Có lỗi xảy ra khi xóa dữ liệu từ API:', error);
+  }
+}
+deleteDataFromAPIaxios();
+
+// câu 50
+async function updateDataInAPIaxios(data) {
+  try {
+    const response = await axios.put('https://jsonplaceholder.typicode.com/posts/1', data);
+    console.log('Dữ liệu đã được cập nhật trên API:', response.data);
+  } catch (error) {
+    console.error('Có lỗi xảy ra khi cập nhật dữ liệu trên API:', error);
+  }
+}
+updateDataInAPIaxios(data);
