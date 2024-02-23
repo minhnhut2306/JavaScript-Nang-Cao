@@ -1,0 +1,3 @@
+mở cmd nhập
++ npm install -g json-server
++ npm install axios
