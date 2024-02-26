@@ -20,23 +20,20 @@
 
     <h2>Chuỗi Converter</h2>
 
-    <label for="inputString">Nhập chuỗi:</label>
+    <label for="inputString">Nhập email:</label>
+    <br> <br>
     <input type="text" id="inputString">
-
-
     <br><br>
-
     <button onclick="convertString()">Convert</button>
-
     <div id="result"></div>
 
     <script>
         function convertString() {
             var inputString = document.getElementById("inputString").value;
-
-            var characters = inputString.replace(/\W+(\w)/g, ( _,match) => match.toUpperCase());
-
-            var result = document.getElementById("result").innerText = characters;
+            var pattern = /^[a-z][a-z0-9_\.]{4,31}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/;
+            var check = pattern.test(inputString);
+            var result = document.getElementById("result") 
+            result.innerText = check ? 'TRUE' : 'FALSE';    
         }
     </script>
 
