@@ -40,22 +40,37 @@
     <p>3</p>
     <h2>Form Đăng nhập</h2>
     <form id="loginForm">
-      <label for="username">Tên đăng nhập:</label><br>
-      <input type="text" id="username" name="username" pattern="PS\d{5}" title="Tên đăng nhập bắt đầu bằng 'PS' tiếp theo là 5 ký tự số" required><br>
-      <label for="password">Mật khẩu:</label><br>
-      <input type="password" id="password" name="password" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,}$" title="Mật khẩu phải có ít nhất 7 ký tự bao gồm chữ in hoa, số và ký tự đặc biệt" required><br>
-      <input type="submit" value="Đăng nhập">
+      <label for="username">Tên đăng nhập:</label><br />
+      <input
+        type="text"
+        id="username"
+        name="username"
+        pattern="PS\d{5}"
+        title="Tên đăng nhập bắt đầu bằng 'PS' tiếp theo là 5 ký tự số"
+        required
+      /><br />
+      <label for="password">Mật khẩu:</label><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,}$"
+        title="Mật khẩu phải có ít nhất 7 ký tự bao gồm chữ in hoa, số và ký tự đặc biệt"
+        required
+      /><br />
+      <input type="submit" value="Đăng nhập" />
     </form>
-    <hr>
-    <p>4</p>
-    <!--câu 4.1-->
-    <p>4.1</p>
-    <p id="4.1">4.1</p>
-    <!--câu 4.2-->
-    <p>4.2</p>
-    <p id="4.2">4.2</p>
-    <!--câu 4.3-->
-    <p>4.3</p>
+    <hr />
+    <p>DOM</p>
+    <button id="pickButton">Bốc số</button>
+    <button id="historyButton">Lịch sử</button>
+    <input
+      type="text"
+      id="guessInput"
+      placeholder="Nhập các số cách nhau bằng khoảng trắng"
+    />
+    <button id="checkButton">Kiểm tra</button>
+    <button id="resetButton">Chơi lại</button>
   </body>
   <script src="data.js"></script>
   <script src="ontap.js"></script>
