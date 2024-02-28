@@ -1,199 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        #message {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            padding: 20px;
-            background-color: #37383d;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+      #message {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        padding: 20px;
+        background-color: #37383d;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <button id="paymentBtn">Thanh toán</button>
     <div id="message">Bạn đã thanh toán thành công</div>
 
-    <ul id="ullist">
-
-    </ul>
-
-</body>
-
+    <ul id="ullist"></ul>
+  </body>
 </html>
 <script>
-    //1
-    const ageOne = [5, 2, 4, 1, 15, 8, 3, 10, 20];
-    const ageTwo = [16, 6, 10, 5, 6, 1, 4];
+  //1
+  const ageOne = [5, 2, 4, 1, 15, 8, 3, 10, 20];
+  const ageTwo = [16, 6, 10, 5, 6, 1, 4];
 
-    const newAge = new Set([...ageOne, ...ageTwo]);
-    // console.log(newAge);
-    const newAgeTwo = [...newAge];
-    console.log("Mảng sau khi lọc: ", newAgeTwo);
+  const newAge = new Set([...ageOne, ...ageTwo]);
+  // console.log(newAge);
+  const newAgeTwo = [...newAge];
+  console.log("Mảng sau khi lọc: ", newAgeTwo);
 
-    //2
-    const age = [5, 2, 4, 1, 15, 8, 3, 10, 20];
-    let ageFinal = [];
+  //2
+  const age = [5, 2, 4, 1, 15, 8, 3, 10, 20];
+  let ageFinal = [];
 
-    age.map(num => {
-        num % 2 === 0 ? ageFinal.push(num) : ageFinal.push(Math.pow(num, 2));
+  age.map((num) => {
+    num % 2 === 0 ? ageFinal.push(num) : ageFinal.push(Math.pow(num, 2));
+  });
+
+  // age.forEach(num => {
+  //     if (num % 2 === 0) {
+  //         ageFinal.push(num);
+  //     } else {
+  //         ageFinal.push(Math.pow(num, 2));
+  //     }
+  // });
+
+  const sum = ageFinal
+    .filter((num) => num % 2 === 0)
+    .reduce((sum, num) => sum + num, 0);
+  let tong = 0;
+  ageFinal.forEach((num) => {
+    tong += num;
+  });
+
+  console.log("Mảng mới ageFinal:", ageFinal);
+  console.log("Tổng các số chẵn trong mảng:", sum);
+
+  //3
+  const paymentBtn = document.getElementById("paymentBtn");
+  const message = document.getElementById("message");
+
+  paymentBtn.addEventListener("click", function () {
+    message.style.display = "block";
+  });
+
+  message.addEventListener("click", function () {
+    message.style.display = "none";
+  });
+
+  //4
+  const ul = document.getElementById("ullist");
+
+  fetch("https://fakestoreapi.com/products?limit=5")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      data.sort((a, b) => b.price - a.price);
+      data.forEach((product) => {
+        const liTitle = document.createElement("li");
+        liTitle.textContent = "Title: " + product.title;
+
+        const liImage = document.createElement("li");
+        const img = document.createElement("img");
+        img.src = product.image;
+        liImage.appendChild(img);
+
+        const liPrice = document.createElement("li");
+        liPrice.textContent = "Price: " + product.price;
+
+        const liDescription = document.createElement("li");
+        liDescription.textContent = "Description: " + product.description;
+
+        ul.appendChild(liTitle);
+        ul.appendChild(liImage);
+        ul.appendChild(liPrice);
+        ul.appendChild(liDescription);
+      });
     })
-
-    // age.forEach(num => {
-    //     if (num % 2 === 0) {
-    //         ageFinal.push(num);
-    //     } else {
-    //         ageFinal.push(Math.pow(num, 2));
-    //     }
-    // });
-
-    const sum = ageFinal.filter(num => num % 2 === 0).reduce((sum, num) => sum + num, 0);
-
-    let tong = 0;
-    ageFinal.forEach(num => {
-        tong+=num;
+    .catch((error) => {
+      console.log("Error: ", error);
     });
 
-    console.log("Mảng mới ageFinal:", ageFinal);
-    console.log("Tổng các số chẵn trong mảng:", sum);
+  //5
+  // const Menber = function (name, address, phone, cccd) {
+  //     this.name = name
+  //     this.address = address
+  //     this.phone = phone
+  //     this.cccd = cccd
+  // }
 
-    //3
-    const paymentBtn = document.getElementById("paymentBtn");
-    const message = document.getElementById("message");
+  // Person.prototype.info = function () {
+  //     return `Tôi tên là ${this.name}, đang sống tại ${this.address},
+  //             số điện thoại ${this.phone}, số cmnd là ${this.cmnd}`;
+  // }
 
-    paymentBtn.addEventListener("click", function () {
-        message.style.display = "block";
-    });
+  class Person {
+    constructor(name, address, phone, cmnd) {
+      this.name = name;
+      this.address = address;
+      this.phone = phone;
+      this.cmnd = cmnd;
+    }
 
-    message.addEventListener("click", function () {
-        message.style.display = "none";
-    });
-
-    //4
-    const ul = document.getElementById("ullist");
-
-    fetch("https://fakestoreapi.com/products?limit=5")
-        .then(response => response.json())
-        .then(data => {
-            // console.log(data);
-            data.sort((a, b) => b.price - a.price);
-            data.forEach(product => {
-                const liTitle = document.createElement("li");
-                liTitle.textContent = "Title: " + product.title;
-
-                const liImage = document.createElement("li");
-                const img = document.createElement("img");
-                img.src = product.image;
-                liImage.appendChild(img);
-
-                const liPrice = document.createElement("li");
-                liPrice.textContent = "Price: " + product.price;
-
-                const liDescription = document.createElement("li");
-                liDescription.textContent = "Description: " + product.description;
-
-                ul.appendChild(liTitle);
-                ul.appendChild(liImage);
-                ul.appendChild(liPrice);
-                ul.appendChild(liDescription);
-            });
-        })
-        .catch(error => {
-            console.log('Error: ', error);
-        });
-
-    //5
-    // const Menber = function (name, address, phone, cccd) {
-    //     this.name = name
-    //     this.address = address
-    //     this.phone = phone
-    //     this.cccd = cccd
-    // }
-
-    // Person.prototype.info = function () {
-    //     return `Tôi tên là ${this.name}, đang sống tại ${this.address}, 
-    //             số điện thoại ${this.phone}, số cmnd là ${this.cmnd}`;
-    // }
-
-    class Person {
-        constructor(name, address, phone, cmnd) {
-            this.name = name;
-            this.address = address;
-            this.phone = phone;
-            this.cmnd = cmnd;
-        }
-
-        info() {
-            return `Tôi tên là ${this.name}, đang sống tại ${this.address}, 
+    info() {
+      return `Tôi tên là ${this.name}, đang sống tại ${this.address}, 
                 số điện thoại ${this.phone}, số cmnd là ${this.cmnd}`;
-        }
+    }
+  }
+
+  class User extends Person {
+    constructor(name, address, phone, cmnd, dateSalary) {
+      super(name, address, phone, cmnd);
+      this.dateSalary = dateSalary;
     }
 
-    class User extends Person {
-        constructor(name, address, phone, cmnd, dateSalary) {
-            super(name, address, phone, cmnd);
-            this.dateSalary = dateSalary;
-        }
-
-        getInfo() {
-            return `Tôi tên là ${this.name}, đang sống tại ${this.address}, 
+    getInfo() {
+      return `Tôi tên là ${this.name}, đang sống tại ${this.address}, 
                 số điện thoại ${this.phone}, số cmnd là ${this.cmnd}, ngày sinh ${this.dateSalary}`;
-        }
-
-        setNameUser(newName) {
-            if (newName.length < 4) {
-                console.log("Vui lòng nhập tên dài hơn 4 ký tự");
-            } else {
-                this.name = newName;
-                console.log(`Chào mừng ${this.name} tham gia hệ thống FPT`);
-            }
-        }
     }
 
-
-    const user = new User('Bac', 'Q12', '123456789', '45345433345', '15-01-2004');
-    user.setNameUser('Bac');
-    user.setNameUser('Nam Bac');
-    const person = new Person('Bac', 'Q12', '123456789', '45345433345');
-
-    console.log(user.getInfo());
-
-    //6
-    const gameEvent = new Map([
-        [10, 'Ghi bàn'],
-        [25, 'Thẻ vàng'],
-        [40, 'Thẻ đỏ'],
-        [60, 'Ghi bàn'],
-        [30, 'Ghi bàn'],
-        [55, 'Thẻ vàng'],
-        [80, 'Thẻ đỏ'],
-        [89, 'Thay người'],
-        [92, 'Ghi bàn']
-    ]);
-
-    let goalTime = [];
-    let totalTime = 0;
-
-    for (let [time, event] of gameEvent) {
-        if (event === 'Ghi bàn') {
-            goalTime.push(time);
-        }
+    setNameUser(newName) {
+      if (newName.length < 4) {
+        console.log("Vui lòng nhập tên dài hơn 4 ký tự");
+      } else {
+        this.name = newName;
+        console.log(`Chào mừng ${this.name} tham gia hệ thống FPT`);
+      }
     }
+  }
 
-    for (let i = 1; i < goalTime.length; i++) {
-        totalTime += goalTime[i] - goalTime[i - 1];
+  const user = new User("Bac", "Q12", "123456789", "45345433345", "15-01-2004");
+  user.setNameUser("Bac");
+  user.setNameUser("Nam Bac");
+  const person = new Person("Bac", "Q12", "123456789", "45345433345");
+
+  console.log(user.getInfo());
+
+  //6
+  const gameEvent = new Map([
+    [10, "Ghi bàn"],
+    [25, "Thẻ vàng"],
+    [40, "Thẻ đỏ"],
+    [60, "Ghi bàn"],
+    [30, "Ghi bàn"],
+    [55, "Thẻ vàng"],
+    [80, "Thẻ đỏ"],
+    [89, "Thay người"],
+    [92, "Ghi bàn"],
+  ]);
+
+  let goalTime = [];
+  let totalTime = 0;
+
+  for (let [time, event] of gameEvent) {
+    if (event === "Ghi bàn") {
+      goalTime.push(time);
     }
+  }
 
-    let avg = totalTime / (goalTime.length - 1);
-    console.log("Trung bình thời gian giữa các lần ghi bàn: " + avg + " phút");
+  for (let i = 1; i < goalTime.length; i++) {
+    totalTime += goalTime[i] - goalTime[i - 1];
+  }
+
+  let avg = totalTime / (goalTime.length - 1);
+  console.log("Trung bình thời gian giữa các lần ghi bàn: " + avg + " phút");
 </script>

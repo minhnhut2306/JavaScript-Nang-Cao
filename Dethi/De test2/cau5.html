@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+  <img id="img1" src="" alt="Image 1">
+  <img id="img2" src="" alt="Image 2">
+  <img id="img3" src="" alt="Image 3">
+</body>
+<script>
+  function httpGet(url) {
+    return new Promise((resolve, reject) => {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) resolve(xhr);
+      };
+      xhr.open("GET", url, true);
+      xhr.send(null);
+    });
+  }
+  
+  const promise1 = new Promise((resolve, reject) => {
+    httpGet("http://picsum.photos/200/300").then(resolve).catch(reject);
+  });
+  
+  const promise2 = new Promise((resolve, reject) => {
+    httpGet("http://picsum.photos/200/300").then(resolve).catch(reject);
+  });
+  
+  const promise3 = new Promise((resolve, reject) => {
+    httpGet("http://picsum.photos/200/300").then(resolve).catch(reject);
+  });
+  
+  Promise.all([promise1, promise2, promise3])
+    .then((responses) => {
+      responses.forEach((data, index) => {
+        console.log(data);
+        document.querySelector(`#img${index + 1}`).setAttribute("src", data.responseURL);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+</script>
+</html>
