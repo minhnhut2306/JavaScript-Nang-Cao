@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, 28, 14, 8, 17, 23];
+      function isPrime(num) {
+        if (num <= 1) return false;
+        if (num <= 3) return true;
+        if (num % 2 === 0 || num % 3 === 0) return false;
+        let i = 5;
+        while (i * i <= num) {
+          if (num % i === 0 || num % (i + 2) === 0) return false;
+          i += 6;
+        }
+        return true;
+      }
+      function filterNew(arr, callback) {
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+          if (callback(arr[i])) {
+            result.push(arr[i]);
+          }
+        }
+        return result;
+      }
+
+      let primeNumbers = filterNew(arr, isPrime);
+      console.log("Các số nguyên tố trong mảng là:", primeNumbers);
+    </script>
+  </body>
+</html>

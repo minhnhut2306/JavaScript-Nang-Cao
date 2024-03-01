@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <div id="thong-tin-sinh-vien"></div>
+
+    <script>
+      class SinhVien {
+        constructor(ten, mssv, lop, diem) {
+          this.ten = ten;
+          this.mssv = mssv;
+          this.lop = lop;
+          this.diem = diem;
+        }
+        tinhDiemTrungBinh() {
+          let tongDiem = 0;
+          for (const diemMon of this.diem) {
+            tongDiem += diemMon;
+          }
+          return tongDiem / this.diem.length;
+        }
+
+        danhGia() {
+          let soDiemDuoi5 = 0;
+          for (const diemMon of this.diem) {
+            if (diemMon < 5) {
+              soDiemDuoi5++;
+            }
+          }
+
+          if (soDiemDuoi5 === 0) {
+            return "Tốt";
+          } else if (soDiemDuoi5 >= 2) {
+            return "Không tốt";
+          } else {
+            return "Khá tốt";
+          }
+        }
+      }
+
+      class Vanan extends SinhVien {
+        constructor(ten, mssv, lop, diem) {
+          super(ten, mssv, lop, diem);
+        }
+      }
+
+      const vanan = new Vanan(
+        "Nguyễn Văn An",
+        "987654321",
+        "CTK42",
+        [8, 7, 6, 9, 5]
+      );
+
+      const diemTrungBinh = vanan.tinhDiemTrungBinh();
+      const danhGia = vanan.danhGia();
+
+      const thongTinSinhVienDiv = document.getElementById(
+        "thong-tin-sinh-vien"
+      );
+      thongTinSinhVienDiv.innerHTML = `
+        <p>Tên sinh viên: ${vanan.ten}</p>
+        <p>MSSV: ${vanan.mssv}</p>
+        <p>Lớp: ${vanan.lop}</p>
+        <p>Điểm trung bình: ${diemTrungBinh}</p>
+        <p>Đánh giá: ${danhGia}</p>
+      `;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      function checkCharacterExists(str, char) {
+        str = str.toLowerCase();
+        char = char.toLowerCase();
+        return str.includes(char);
+      }
+      const str = "javascript";
+      const char = "c";
+      const exists = checkCharacterExists(str, char);
+      if (exists) {
+        console.log("Ký tự", char, "tồn tại trong chuỗi", str);
+      } else {
+        console.log("Ký tự", char, "không tồn tại trong chuỗi", str);
+      }
+    </script>
+  </body>
+</html>
