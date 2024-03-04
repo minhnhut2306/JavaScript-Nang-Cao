@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const number1 = [3, 5, 7, 2, 6, 7, 8];
+    const number2 = [4, 3, 8, 10, 6, 12, 13, 17];
+    //câu 1
+    const [a, b, ...c] = number1;
+    console.log("a:", a);
+    console.log("b:", b);
+    console.log("c:", c);
+    // câu 2
+    const number3 = [...number2, ...number1];
+    console.log(number3);
+    // câu 3
+    console.log(number1.length > number2.length ? number1 : number2);
+    // câu 4
+    const NumberGroup = [...number1, ...number2];
+    console.log(NumberGroup);
+    // câu 5
+    let sum = 0;
+    number2.forEach((num) => (sum += num));
+    console.log("Tổng các phần tử của mảng Number2 là:", sum);
+    // câu 6
+    const numberSet = new Set(number1);
+    console.log("mảng mới trước khi xóa: " + [...numberSet]);
+    numberSet.delete(7);
+    console.log("mảng mới sau khi xóa:" + [...numberSet]);
+    // câu 7
+    const numberMap = number1.map((num) => num ** 2);
+    console.log("Mảng numberMap:", numberMap);
+    // câu 8
+    const products = [
+      {
+        id: 1,
+        name: "Iphone 14",
+        color: ["đen", "xanh", "trắng"],
+        price: 20000000,
+      },
+      {
+        id: 2,
+        name: "Xiaomi",
+        color: ["đỏ", "đen", "trắng"],
+        price: 15000000,
+      },
+      {
+        id: 3,
+        name: "Samsung",
+        color: ["vàng", "xanh", "đen"],
+        price: 14000000,
+      },
+    ];
+    const phone = products
+      .filter((product) => product.price >= 15000000)
+      .flatMap((products) => products.name);
+    console.log(phone);
+
+    // câu 9
+    // 9 a
+    function Dog(name, color, weight, speed) {
+      this.Name = name;
+      this.Color = color;
+      this.Weight = weight;
+      this.Speed = speed;
+    }
+    Dog.prototype.Run = function () {
+      console.log(`Chó ${this.Name} có tốc độ chạy ${this.Speed} km/h`);
+    };
+    const black = new Dog("Đen", "Đen", 20, 10);
+    const U = new Dog("Ú", "Trắng", 15, 8);
+
+    console.log(black);
+    console.log(U);
+    black.Run();
+    U.Run();
+
+    // 9b comment b lại do bị trùng
+
+    // class Dog {
+    //   constructor(name, color, weight, speed) {
+    //     this.Name = name;
+    //     this.Color = color;
+    //     this.Weight = weight;
+    //     this.Speed = speed;
+    //   }
+    //   Run() {
+    //     console.log(`Chó ${this.Name} có tốc độ chạy ${this.Speed} km/h`);
+    //   }
+    // }
+    // const black = new Dog("Đen", "Đen", 20, 10);
+    // const U = new Dog("Ú", "Trắng", 15, 8);
+
+    // console.log(black);
+    // console.log(U);
+
+    // black.Run();
+    // U.Run();
+  </script>
+</html>

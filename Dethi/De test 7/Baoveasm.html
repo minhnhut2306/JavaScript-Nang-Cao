@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="myClass">Trung trung balabala</p>
+    <hr />
+    <button id="colorButton">Đổi Màu Chữ</button>
+    <hr />
+    <br />
+    <div id="userListContainer"></div>
+  </body>
+  <script>
+    const number1 = [3, 5, 7, 2, 6, 7, 8];
+    const number2 = [4, 3, 8, 10, 6, 12, 13, 17];
+
+    // câu 1
+    //1a
+    const number3 = [...number1, ...number2];
+    console.log(number3);
+    //1b
+    const person = { name: "John", age: 30 };
+    const { name, age } = person;
+    console.log(name);
+    console.log(age);
+
+    // câu 2
+    //2a
+    const chan = number1.filter((num) => num % 2 == 0);
+    console.log("Số chẵn: " + chan);
+    //2b
+    const numberMap = number1.map((num) => num ** 2);
+    console.log("Mảng numberMap:", numberMap);
+
+    // câu 3
+    //3a
+    const lapphuong = (x) => x * x * x;
+    //3b
+    const processModulus = () => {
+      let moduns = (a, b) => a % b;
+      console.log(moduns(5, 3));
+    };
+    processModulus();
+    //câu 4
+    //4a
+    const createFullName = (firstName, lastName, callback) => {
+      const fullName = `${firstName} ${lastName}`;
+      callback(fullName);
+    };
+
+    const printFullName = (fullName) => {
+      console.log(`Full name is: ${fullName}`);
+    };
+    createFullName("John", "Doe", printFullName);
+
+    //4b
+    const sumcheck = (numbers, callback) => {
+      const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+      callback(sum % 2 === 0 ? "chẵn" : "lẻ");
+    };
+    const checkEvenOdd = (result) => {
+      console.log(`Tổng là ${result}`);
+    };
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+    sumcheck(numbers, checkEvenOdd);
+    // câu 5
+
+    let str = "HELLO WORLD";
+    //5a
+    str = str.replace("WORLD", "FPOLY");
+    console.log(str);
+    //5b
+    var reverse = str.split("").reverse().join("");
+    console.log(reverse);
+
+    // câu 6
+    //6a
+    var text = document.getElementById("myClass");
+    text.innerHTML = "Hello World";
+    //6b
+    text.onmouseover = function () {
+      this.style.color = "red";
+    };
+    text.onmouseout = function () {
+      this.style.color = "black";
+    };
+    var colorButton = document.getElementById("colorButton");
+    colorButton.addEventListener("mouseover", function () {
+      text.style.color = "blue";
+    });
+    colorButton.addEventListener("mouseout", function () {
+      text.style.color = "black";
+    });
+
+    // câu 7
+    // 7a
+    class People {
+      constructor(name, color, age) {
+        this.Name = name;
+        this.Color = color;
+        this.Age = age;
+      }
+      getInfo() {
+        console.log(`${this.Name} ${this.Age} tuổi da màu ${this.Color}`);
+      }
+    }
+    const person1 = new People("Trung", "nâu", 20);
+    person1.getInfo();
+
+    // 7b
+    class People2 {
+      constructor(name, color, age) {
+        this.Name = name;
+        this.Color = color;
+        this.Age = age;
+      }
+      getInfo() {
+        console.log(`${this.Name} ${this.Age} tuổi da màu ${this.Color}`);
+      }
+    }
+    const person2 = new People2("Trung số 2 ", "nâu", 21);
+    person2.getInfo();
+
+    // 7c
+    class Student extends People {
+      constructor(name, color, age, score) {
+        super(name, color, age);
+        this.Score = score;
+      }
+      getScore() {
+        console.log(`Sinh viên ${this.Name} đạt điểm trung bình ${this.Score}`);
+      }
+    }
+    const student1 = new Student("Trung số 3", "nâu", 20, 8.5);
+    student1.getInfo();
+    student1.getScore();
+
+    // câu 8
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((data) => {
+        const users = data.map(
+          (user) => `<li>${user.name}: ${user.phone} : ${user.email} </li>`
+        );
+        const userList = `<ul>${users.join("")}</ul>`;
+        document.getElementById("userListContainer").innerHTML = userList;
+      })
+      .catch((error) => console.error("Error:", error));
+  </script>
+</html>
